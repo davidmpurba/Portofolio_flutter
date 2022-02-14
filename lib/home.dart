@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portofolio_i/login.dart';
+import 'package:form_validation/form_validation.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -12,8 +13,9 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         home: Scaffold(
-          backgroundColor: Colors.black12,
+          backgroundColor: Colors.blueGrey[900],
           body: Container(
             padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
             alignment: Alignment.center ,

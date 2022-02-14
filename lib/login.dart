@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portofolio_i/home.dart';
-
+import 'package:form_validation/form_validation.dart';
+import 'package:portofolio_i/utama.dart';
 
 
 
@@ -14,15 +15,19 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
+  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
 
-        backgroundColor: Colors.black12,
+        backgroundColor: Colors.blueGrey[900],
         appBar: AppBar(
 
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blueGrey[900],
           leading: IconButton(onPressed: () {
 
             Navigator.pushReplacement(context,
@@ -66,7 +71,7 @@ class _loginState extends State<login> {
                 Container(
                    child: SizedBox(
                      width: 330,
-                     child: TextField(
+                     child: TextFormField(
                          decoration: InputDecoration(
                            contentPadding:
                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -79,8 +84,21 @@ class _loginState extends State<login> {
                            fillColor: Colors.white,
                            filled: true,
                          ),
-                       )
+                       validator: (value) {
+                         var validator = Validator(
+                           validators: [
+                             RequiredValidator(),
+                             EmailValidator(),
+                           ],
+                         );
 
+                         return validator.validate(
+                           context: context,
+                           label: 'Email',
+                           value: value,
+                         );
+                       }
+                       )
                    ),
                 ),
                 SizedBox(height: 3),
@@ -113,11 +131,9 @@ class _loginState extends State<login> {
                     SizedBox(height: 15,),
 
                     RaisedButton(
-
-
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return login();
+                          return utama();
                         }));
                       },
 
