@@ -25,10 +25,27 @@ class _utamaState extends State<utama> {
           ],
         ),
         body: SingleChildScrollView(
+
           child: Container(
             child: Column(
               children: [
-                Image.asset("asset/img-home.png"),
+                Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage("asset/img-home.png"),fit: BoxFit.cover),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Text("Wood Collections",
+                      style: TextStyle(color: Colors.white,fontSize:25,fontFamily: )),
+                    Text("Furniture High Quality",
+                      style: TextStyle(color: Colors.white,fontSize: 12),)
+                    ],
+                  )
+                ),
                 // Text("Wood Collections",style: TextStyle(),),
                 // Text("Furniture High Quality")
                 Container(
@@ -49,7 +66,6 @@ class _utamaState extends State<utama> {
                 Container(
                   child: Row(
                   children: [
-                    Image.asset("asset/nitro.jpg")
                   ],
                   ),
                 ),
